@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Product overview</h1>
+    <form class="form" (ngSubmit)="saveProduct()">
+    
+        <div class="form-group" >
+                <label for="prodId">id: </label>
+                <input class="form-control" type="text" name="prodId" [(ngModel)]="product.prodId" disabled>
+            </div>
+        <div class="form-group" >
+            <label for="prodDescription">Description: </label>
+            <input class="form-control" type="text" name="prodDescription" [(ngModel)]="product.prodDescription" required>
+        </div>
+        <div class="form-group">
+            <label for="prodQuantity">quantity: </label>
+            <input class="form-control" type="number" name="prodQuantity" [(ngModel)]="product.prodQuantity">
+        </div>
+        <div class="form-group">
+            <label for="prodMeasure">measure: </label>
+            <input class="form-control" type="text" name="prodMeasure" [(ngModel)]="product.prodMeasure">
+        </div>
+        <div class="form-group">
+            <label for="prodPictureUrl">picutre: </label>
+            <input class="form-control" type="text" name="prodPictureUrl" [(ngModel)]="product.prodPictureUrl">
+        </div>
+        <input class="btn btn-primary" type="submit" value="save">
+    </form>
+</div>
