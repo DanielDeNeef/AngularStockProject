@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Router } from '@angular/router';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-product-list',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
   products:Product[];
   product=new Product();
+  faCoffee=faSearch;
 
   constructor(private productService:ProductService,private router:Router) { }
 
@@ -43,6 +45,15 @@ export class ProductListComponent implements OnInit {
 
   productsLenght(){
     return this.products.length;
+  }
+
+  search(search:String){
+    if(search.length>0){
+      this.productService.searchProduct(search)
+      .subscribe(data=>this.products=data);
+    }else{
+      this.ngOnInit();
+  }
   }
 
 }

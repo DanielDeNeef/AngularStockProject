@@ -1,0 +1,74 @@
+<div class="container">
+    <h1>Menu Details</h1>
+
+    <form [formGroup]="myForm" class="form" (ngSubmit)="saveMenu()">
+        <!-- 
+        value: {{myForm.value | json}}
+        <hr>
+        object: {{menu | json}}
+
+        <hr> -->
+
+        <div class="form-group">
+            <div class="form-group">
+                <img [src]="menuImage" *ngIf="menuImage">
+            </div>
+            <label>image</label>
+            <input type="text" formControlName="menuImage">
+        </div>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" formControlName="menuDescription">
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <select>
+                <option value=""></option>
+                <option value="Beers">Beer</option>
+                <option value="meet">Meet</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" name="menuActive" id="active" class="form-group-check" formControlName="menuActive">
+            <label for="active">Active</label>
+        </div>
+
+
+        <!-- Sub Form That contains the proudcts and the quantities -->
+
+        <div formArrayName="products">
+            <div *ngFor="let prod of productsForm.controls;let i = index" [formGroupName]="i">
+
+                <div class="row">
+                    <div class="col" formGroupName="product">
+                        <div class="form-group">
+                            <label>Product name</label>
+                            <select type="text" formControlName="prodId">
+                                <option *ngFor="let prod of productList" [value]="prod.prodId"><img
+                                        [src]="prod.prodPictureUrl">{{prod.prodDescription}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input type="number" formControlName="qty">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button (click)="deleleteProducts(i)" class="btn btn-danger">X</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button (click)="addProducts()" type="button" class="btn btn-success"><span style="font-weight: bold;">+</span></button>
+        <input type="submit" class="btn btn-success" value="save">
+    </form>

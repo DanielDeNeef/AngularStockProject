@@ -39,6 +39,10 @@ export class ProductService {
     return this.product;
   }
 
+  searchProduct(search:String):Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl+"/search/"+search);
+  }
+
   setProduct(prod:Product){
     if(prod.prodId==undefined){
       prod.prodId=null;

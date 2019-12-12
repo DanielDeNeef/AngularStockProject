@@ -18,11 +18,8 @@ export class ProductFormComponent implements OnInit {
     this.product=this.productService.getProduct();
   }
 
-  saveProduct(){
-    console.log(this.product)
-      
+  saveProduct(){     
       this.productService.createProduct(this.product).subscribe((data)=>console.log(data));
       this.route.navigate(['/products']);
     }
-
 }

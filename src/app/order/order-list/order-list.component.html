@@ -1,0 +1,26 @@
+<div class="container" >
+        <h1>List of Active Orders<span style="font-size: 13px;" *ngIf="products"> ({{orderlist.lenght()}})</span></h1>
+        <button class="btn btn-success" style="float: right;margin-bottom: 10px;" (click)="createOrder()">add New</button>
+        <table class="table table-bordered table-hover text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>date</th>
+                    <th>Active</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orderlist" >
+                    <td>{{order.id}}</td>
+                    <td>{{order.date}}</td>
+                    <td>{{order.active}}</td>
+                    <td>
+                        <button class="btn btn-primary mr-1 float-right" (click)="showOrder(order.id)" >show</button>
+                        <button class="btn btn-info mr-1 float-right" *ngIf="order.active!=false" >close</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
