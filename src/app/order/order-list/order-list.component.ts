@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class OrderListComponent implements OnInit {
   orderlist:Order[];
+  nombre=this.orderlist
 
   constructor(private orderServcie:OrderService,
     private route:Router) { }
@@ -17,6 +18,8 @@ export class OrderListComponent implements OnInit {
   ngOnInit() {
     this.orderServcie.getAllActiveOrders()
     .subscribe(data=>this.orderlist=data);
+
+    console.log("nombre: "+this.nombre);
   }
 
   showOrder(id:number){

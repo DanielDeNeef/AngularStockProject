@@ -37,7 +37,6 @@ export class ProductListComponent implements OnInit {
       this.router.navigate(["/showProduct"]);
 
     }else{
-      alert(prod);
       this.productService.setProduct(new Product())
       this.router.navigate(["/showProduct"]);
     }

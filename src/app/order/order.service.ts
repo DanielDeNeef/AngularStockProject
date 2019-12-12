@@ -12,7 +12,7 @@ export class OrderService {
   constructor(private http:HttpClient) { }
 
   getAllActiveOrders():Observable<Order []>{
-    return this.http.get<Order []>(this.baseUrl+"/active");
+    return this.http.get<Order []>(this.baseUrl);
   }
 
   getOrderById(id:number):Observable<Order>{
