@@ -67,7 +67,7 @@ export class OrderFormComponent implements OnInit {
       menu:this.fb.group({
         menuId:null,
       }),
-      quantity:null,
+      quantity:1,
     })
 
     this.menuForm.push(orderMenuList);
