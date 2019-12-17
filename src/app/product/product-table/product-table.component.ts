@@ -15,7 +15,7 @@ import { MatSort } from '@angular/material';
 export class ProductTableComponent implements OnInit {
 
   listData: MatTableDataSource<Product>;
-  displayedColumns = ['prodId','prodDescription','prodQuantity','prodMeasure','prodPictureUrl','action'];
+  displayedColumns = ['prodId','prodDescription','prodQuantity','prodMeasure','prodPictureUrl','action','Search'];
   product:Product={
     prodId:null
   }
