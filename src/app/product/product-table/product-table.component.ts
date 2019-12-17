@@ -15,7 +15,7 @@ import { MatSort } from '@angular/material';
 export class ProductTableComponent implements OnInit {
 
   listData: MatTableDataSource<Product>;
-  displayedColumns = ['prodId','prodDescription','prodQuantity','prodMeasure','prodPictureUrl','action','Search'];
+  displayedColumns = ['prodId','prodDescription','prodQuantity','prodMeasure','prodPictureUrl','action'];
   product:Product={
     prodId:null
   }
@@ -45,5 +45,9 @@ export class ProductTableComponent implements OnInit {
       this.productService.setProduct(new Product())
       this.router.navigate(["/showProduct"]);
     }
+  }
+
+  applyFilter(filterValue: string) {
+    this.listData.filter = filterValue.trim().toLowerCase();
   }
 }
