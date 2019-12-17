@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>ListTable</h1>
+  <button class="btn btn-success" style="margin: 10px;" (click)="showProduct(product)">
+    <fa-icon [icon]="faPlus">
+    </fa-icon>
+  </button>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="listData" style="width: 100%;" matSort class="mat-elevation-z8">
+
+      <!-- Prod ID -->
+        <ng-container matColumnDef="prodId">
+          <th mat-header-cell *matHeaderCellDef>Prod Nr.</th>
+          <td mat-cell *matCellDef="let element">{{element.prodId}}</td>
+        </ng-container>
+
+      <!-- Prod Description -->
+      <ng-container matColumnDef="prodDescription">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let element">{{element.prodDescription}}</td>
+      </ng-container>
+      <!-- Prod Quantity -->
+      <ng-container matColumnDef="prodQuantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+        <td mat-cell *matCellDef="let element">{{element.prodQuantity}}</td>
+      </ng-container>
+      <!-- Prod Measure Unit-->
+      <ng-container matColumnDef="prodMeasure">
+        <th mat-header-cell *matHeaderCellDef>Measure</th>
+        <td mat-cell *matCellDef="let element">{{prodMeasure}}</td>
+      </ng-container>
+      <!-- Prod Picture -->
+      <ng-container matColumnDef="prodPictureUrl">
+        <th mat-header-cell *matHeaderCellDef>Picture</th>
+        <td mat-cell *matCellDef="let element">
+          <img [src]="element.prodPictureUrl" style="width:50px;">
+        </td>
+      </ng-container>
+
+      <!-- Prod Action -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button class="btn btn-primary" style="margin-right: 5px;" (click)="showProduct(element)">
+            <fa-icon [icon]="faEye"></fa-icon>
+          </button>
+          <button class="btn btn-danger">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+      <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
