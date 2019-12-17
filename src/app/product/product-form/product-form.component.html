@@ -1,14 +1,24 @@
 <div class="container">
     <h1>Product overview</h1>
     <form class="form" (ngSubmit)="saveProduct()">
-    
-        <div class="form-group" >
-                <label for="prodId">id: </label>
-                <input class="form-control" type="text" name="prodId" [(ngModel)]="product.prodId" disabled>
-            </div>
-        <div class="form-group" >
+
+        <div class="form-group">
+            <label for="prodId">id:</label>
+            <input class="form-control" type="text" name="prodId" [(ngModel)]="product.prodId" disabled>
+        </div>
+
+        <div class="form-group">
+            <label>Image</label>
+            <div class="form-group">
+            <img  [src]="product.prodPictureUrl" style="width: 45%" >
+        </div>
+            <input type="file" #Image  name="prodFile" accept="image/*" (change)="handleFileInput($event.target.files)">
+        </div>
+
+        <div class="form-group">
             <label for="prodDescription">Description: </label>
-            <input class="form-control" type="text" name="prodDescription" [(ngModel)]="product.prodDescription" required>
+            <input class="form-control" type="text" name="prodDescription" [(ngModel)]="product.prodDescription"
+                required>
         </div>
         <div class="form-group">
             <label for="prodQuantity">quantity: </label>

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MenuService {
 
-  baseUrl="http://localhost:8080/menu";
+  baseUrl="http://localhost:8081/menu";
 
   constructor(private http:HttpClient, private route:Router) { }
 

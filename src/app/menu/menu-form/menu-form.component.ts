@@ -19,6 +19,7 @@ export class MenuFormComponent implements OnInit {
   productList:Product[];
   product:Product;
   menu:Menu;
+  menuImage:string;
 
   constructor(private fb:FormBuilder,
     private productService:ProductService,
@@ -33,9 +34,9 @@ export class MenuFormComponent implements OnInit {
     
     this.myForm=this.fb.group({
       menuId:[],
-      menuImage:'',
+      menuImage:[],
       menuActive:false,
-      menuDescription:'',
+      menuDescription:[],
       products: this.fb.array([])
     })
 
@@ -52,7 +53,7 @@ export class MenuFormComponent implements OnInit {
           menuCategory:'',
           menuActive:false,
           products:[],
-          image:''
+          image:null
         };
       }
     });

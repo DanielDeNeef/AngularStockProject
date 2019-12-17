@@ -7,7 +7,7 @@ import { Product } from './product';
   providedIn: 'root'
 })
 export class ProductService {
-  baseUrl: string  = "http://localhost:8080/products";
+  baseUrl: string  = "http://localhost:8081/products";
   product:Product={
     prodId:null,
     prodDescription:'',
@@ -49,5 +49,4 @@ export class ProductService {
     }
     this.product = prod;
   }
-
 }

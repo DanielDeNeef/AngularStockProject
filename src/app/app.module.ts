@@ -17,6 +17,7 @@ import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { OrderFormComponent } from './order/order-form/order-form.component';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { FileSaverService } from './file-saver.service';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     ReactiveFormsModule,
     FontAwesomeModule    
   ],
-  providers: [ProductService,MenuService],
+  providers: [ProductService,MenuService,FileSaverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
