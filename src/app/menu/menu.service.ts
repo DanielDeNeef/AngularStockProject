@@ -21,8 +21,8 @@ export class MenuService {
     return this.http.get<Menu[]>(this.baseUrl+"/active");
    }
 
-  deleteMenu(menu):Observable<Menu>{
-    return this.http.delete<Menu>(this.baseUrl+'/'+menu.menuId);
+  deleteMenu(id:number):Observable<Menu>{
+    return this.http.delete<Menu>(this.baseUrl+'/'+id);
   }
 
   saveMenu(menu:Menu):Observable<Menu>{
