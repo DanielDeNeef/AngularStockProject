@@ -32,6 +32,11 @@ export class MenuListComponent implements OnInit {
     setTimeout(() => this.listData.paginator=this.paginator);
   }
 
+  /**
+   * this method will ask the service to delete the Menu and 
+   * remove it from the table
+   * @param id the id that represent the menu
+   */
   deleteMenu(id:number){
     this.menuService.deleteMenu(id).subscribe();
     const itemIndex = this.listData.data.findIndex(obj => obj['menuId']===id);
